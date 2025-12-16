@@ -1,0 +1,67 @@
+﻿@model labdemo1.Model.Student
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<div>
+    <form action="/Home/Edit" method="post">
+        @Html.AntiForgeryToken()
+        <table>
+            <tbody>
+                <tr>
+                    <td>Name</td>
+                    <td>
+                        <input type="hidden" name="No" value="@Model.No" />
+                        <input type="text" name="Name" value="@Model.Name"/>
+                    </td>
+                    <td style="color:red">
+                        @Html.ValidationMessage("Name")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Address</td>
+                    <td>
+                        <input type="text" name="Address" value="@Model.Address"/>
+                    </td>
+                    <td style="color:red">
+                        @Html.ValidationMessage("Address")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Age</td>
+                    <td>
+                        <input type="text" name="Age" value="@Model.Age"/>
+                    </td>
+                    <td style="color:red">
+                        @Html.ValidationMessage("Age")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>Email</td>
+                    <td>
+                        <input type="text" name="Email" value="@Model.Email"/>
+                    </td>
+                    <td style="color:red">
+                        @Html.ValidationMessage("Email")
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <input type="submit" name="btnCreate" value="Update Record" />
+                    </td>
+                </tr>
+
+
+            </tbody>
+
+        </table>
+        <hr />
+        <p class="alert-danger">
+            @ViewBag.Message
+        </p>
+    </form>
+</div>

@@ -1,0 +1,42 @@
+﻿@model List<labdemo1.Model.Student>
+@{
+    Layout = "~/Views/Shared/Master.cshtml";
+}
+
+<a href="/Home/Create">Add New Record</a>
+<div>
+
+    <table>
+    <thead>
+        <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Address</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+        </tr>
+
+    </thead>
+    <tbody>
+            @foreach(var student in Model)
+            {
+                <tr>
+                    <td>@student.No</td>
+                    <td>@student.Name</td>
+                    <td>@student.Age</td>
+                    <td>@student.Address</td>
+                    <td>@student.Email</td>
+                    <td>
+                        <a href="/Home/Edit/@student.No">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/Home/Delete/@student.No">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+</table>
+
+</div>
